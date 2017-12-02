@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="MngFrame:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="mngFrame.war">
+      <element id="artifact" artifact-name="MngFrame:war exploded" />
+    </root>
+  </artifact>
+</component>
