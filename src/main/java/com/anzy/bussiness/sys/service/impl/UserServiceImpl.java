@@ -1,8 +1,8 @@
-package com.springmvc.service.impl;
+package com.anzy.bussiness.sys.service.impl;
 
-import com.springmvc.dao.UserDao;
-import com.springmvc.entity.User;
-import com.springmvc.service.UserService;
+import com.anzy.bussiness.sys.dao.UserDao;
+import com.anzy.bussiness.sys.entity.User;
+import com.anzy.bussiness.sys.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

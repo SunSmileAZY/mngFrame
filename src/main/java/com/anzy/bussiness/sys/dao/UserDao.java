@@ -1,13 +1,17 @@
-package com.springmvc.service;
+package com.anzy.bussiness.sys.dao;
 
-import com.springmvc.entity.User;
+import com.anzy.bussiness.sys.entity.User;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by anzy on 2017/12/1.
  */
-public interface UserService {
+@Repository
+public interface UserDao {
+
     /**
      *  Created by Vitelon on 2017-03-22
      *  根据用户名和密码查询用户
@@ -15,7 +19,7 @@ public interface UserService {
      * @param password
      * @return
      */
-    public User findByUsernameAndPwd(String username, String password);
+    public User findByUsernameAndPwd(@Param("username") String username, @Param("password") String password);
 
     /**
      *  Created by Vitelon on 2017-03-30

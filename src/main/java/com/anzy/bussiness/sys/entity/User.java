@@ -1,4 +1,4 @@
-package com.springmvc.entity;
+package com.anzy.bussiness.sys.entity;
 
 import java.io.Serializable;
 

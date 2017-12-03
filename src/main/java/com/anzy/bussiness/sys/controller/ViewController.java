@@ -1,10 +1,9 @@
-package com.springmvc.controller;
+package com.anzy.bussiness.sys.controller;
 
-import com.springmvc.entity.User;
-import com.springmvc.service.UserService;
+import com.anzy.bussiness.sys.entity.User;
+import com.anzy.bussiness.sys.service.UserService;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

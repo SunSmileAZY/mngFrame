@@ -1,4 +1,4 @@
-package com.springmvc.controller;
+package com.anzy.bussiness.sys.controller;
 
 /**
  * Created by anzy on 2017/12/1.

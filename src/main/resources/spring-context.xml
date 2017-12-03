@@ -20,7 +20,7 @@
        <context:annotation-config/>
 
        <!-- 开启组件自动扫描；使用Annotation自动注册Bean，解决事物失效问题：在主容器中不扫描@Controller注解，在SpringMvc中只扫描@Controller注解。  -->
-       <context:component-scan base-package="com.springmvc"><!-- base-package 如果多个，用“,”分隔 -->
+       <context:component-scan base-package="com.anzy"><!-- base-package 如果多个，用“,”分隔 -->
               <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
        </context:component-scan>
 
@@ -75,7 +75,7 @@
 
        <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
        <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-              <property name="basePackage" value="com.springmvc.dao"/>
+              <property name="basePackage" value="com.anzy.bussiness.sys.dao"/>
               <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
        </bean>
 
@@ -100,6 +100,7 @@
                      <tx:method name="get*" read-only="true" />
                      <tx:method name="select*" read-only="true" />
                      <tx:method name="count*" read-only="true" />
+                     <tx:method name="list*" read-only="true" />
                      <!-- 对其他方法 使用默认的事务管理 -->
                      <tx:method name="*" />
               </tx:attributes>
@@ -107,7 +108,7 @@
 
        <!-- 事务 aop 配置 -->
        <aop:config>
-              <aop:pointcut id="serviceMethods" expression="execution(public * com.springmvc.service..*(..))" />
+              <aop:pointcut id="serviceMethods" expression="execution(public * com.anzy.bussiness.*.service..*(..))" />
               <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" />
        </aop:config>
 
