@@ -11,6 +11,10 @@ public class Constants {
     /** SessionKey: 用户uuid */
     public static final String SESN_USR_UID = "sesnUsrId";
 
+    public static final String SESN_USR = "SESN_USR";
+    /** 验证码  **/
+    public static final String VERIFY_CODE = "VERIFY_CODE";
+
     /** SessionKey: 用户Name */
     public static final String SESN_USR_NAME = "sesnUsrName";
 

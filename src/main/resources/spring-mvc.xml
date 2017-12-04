@@ -67,4 +67,15 @@
        <!-- 静态资源映射 -->
        <mvc:resources mapping="/static/**" location="/resources/" cache-period="31536000"/>
 
+       <!-- 拦截器配置 -->
+       <mvc:interceptors>
+              <!-- session超时 -->
+              <mvc:interceptor>
+                     <mvc:mapping path="/**" />
+                     <mvc:exclude-mapping path="/static/**"/>
+                     <bean class="com.anzy.frame.interceptor.SessionInterceptor">
+                     </bean>
+              </mvc:interceptor>
+       </mvc:interceptors>
+
 </beans>

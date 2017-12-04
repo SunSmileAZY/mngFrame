@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by anzy on 2017/12/4.
  */
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/login/")
 public class LoginController {
 
-
-    public R login(){
+    @RequestMapping("login")
+    public R login(String username,String pwd,String vCode){
 
         return R.error();
     }
