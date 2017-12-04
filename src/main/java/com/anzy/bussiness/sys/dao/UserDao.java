@@ -1,16 +1,15 @@
 package com.anzy.bussiness.sys.dao;
 
 import com.anzy.bussiness.sys.entity.User;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by anzy on 2017/12/1.
  */
-@Repository
-public interface UserDao {
+public interface UserDao extends BaseMapper<User>{
 
     /**
      *  Created by Vitelon on 2017-03-22
@@ -19,7 +18,7 @@ public interface UserDao {
      * @param password
      * @return
      */
-    public User findByUsernameAndPwd(@Param("username") String username, @Param("password") String password);
+    public List<User> findByUsernameAndPwd(@Param("username") String username, @Param("password") String password);
 
     /**
      *  Created by Vitelon on 2017-03-30

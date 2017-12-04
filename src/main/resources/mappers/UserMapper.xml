@@ -1,31 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.anzy.bussiness.sys.dao.UserDao">
-
-       <parameterMap id="parameterMap" type="com.anzy.bussiness.sys.entity.User"></parameterMap>
-       <resultMap id="resultMap" type="com.anzy.bussiness.sys.entity.User">
-              <result property="id" column="id"/>
-              <result property="username" column="username"/>
-              <result property="password" column="password"/>
-              <result property="sex" column="sex"/>
+       <!-- 通用查询映射结果 -->
+       <resultMap id="BaseResultMap" type="com.anzy.bussiness.sys.entity.User">
+              <id column="user_id" property="userId" />
+              <result column="username" property="username" />
+              <result column="gender" property="gender" />
+              <result column="age" property="age" />
+              <result column="login_account" property="loginAccount" />
+              <result column="login_pwd" property="loginPwd" />
+              <result column="id_no" property="idNo" />
+              <result column="mobile_phone" property="mobilePhone" />
+              <result column="email" property="email" />
+              <result column="weixin" property="weixin" />
+              <result column="cur_state" property="curState" />
+              <result column="login_amount" property="loginAmount" />
+              <result column="dept_id" property="deptId" />
+              <result column="user_no" property="userNo" />
+              <result column="address" property="address" />
+              <result column="remark" property="remark" />
+              <result column="create_by" property="createBy" />
+              <result column="create_dt" property="createDt" />
+              <result column="update_dt" property="updateDt" />
+              <result column="update_by" property="updateBy" />
+              <result column="delete_by" property="deleteBy" />
+              <result column="act_by_type" property="actByType" />
        </resultMap>
+
 
        <sql id="columnSql">
               <trim suffixOverrides=",">
-                     t.id,
+                     t.user_id,
                      t.username,
-                     t.password,
-                     t.sex,
+                     t.gender,
+                     t.age,
               </trim>
        </sql>
 
-       <select id="findByUsernameAndPwd" resultMap="resultMap">
+       <select id="findByUsernameAndPwd" resultMap="BaseResultMap">
               SELECT
-              <include refid="columnSql"></include>
-              FROM t_user t
-              WHERE t.username = #{username} and t.password = #{password}
+               *
+              FROM au_t_user t
+              WHERE  1=1
+              <if test=" (username != null and username != '') ">
+                     AND  t.username LIKE CONCAT('%','${username}','%' )
+              </if>
        </select>
 
-
-</mapper>  
+</mapper>

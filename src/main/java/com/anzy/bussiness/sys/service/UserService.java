@@ -1,13 +1,15 @@
 package com.anzy.bussiness.sys.service;
 
 import com.anzy.bussiness.sys.entity.User;
+import com.anzy.frame.base.service.BaseService;
+import com.anzy.frame.utils.R;
 
 import java.util.List;
 
 /**
  * Created by anzy on 2017/12/1.
  */
-public interface UserService {
+public interface UserService extends BaseService<User>{
     /**
      *  Created by Vitelon on 2017-03-22
      *  根据用户名和密码查询用户
@@ -15,7 +17,7 @@ public interface UserService {
      * @param password
      * @return
      */
-    public User findByUsernameAndPwd(String username, String password);
+    public List<User> findByUsernameAndPwd(String username, String password);
 
     /**
      *  Created by Vitelon on 2017-03-30
@@ -44,4 +46,6 @@ public interface UserService {
      * @param id
      */
     public void delete(String id);
+
+    public R selectUserPage(String username);
 }
