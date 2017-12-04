@@ -232,13 +232,6 @@
       <classifier>jdk15</classifier>
     </dependency>
 
-    <!-- 用dom4j解析xml文件 -->
-   <!-- <dependency>
-      <groupId>dom4j</groupId>
-      <artifactId>dom4j</artifactId>
-      <version>1.4</version>
-    </dependency>-->
-
     <!-- ehcache -->
     <dependency>
       <groupId>net.sf.ehcache</groupId>

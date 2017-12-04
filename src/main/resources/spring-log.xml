@@ -12,12 +12,10 @@
 ">
 
 	<bean id="logAspect" class="com.anzy.frame.interceptor.LogInterceptor">
-		<property name="order" value="200" />
 	</bean>
 	<aop:config>
-		<aop:aspect ref="logAspect">
+		<aop:aspect ref="logAspect" order="1">
 			<aop:pointcut id="logServiceCut" expression="execution (* com.anzy.bussiness.sys.*.*.*.*(..))"/>
-
 			<!-- 方法执行前 -->
 			<aop:before pointcut-ref="logServiceCut" method="doBefore" />
 			<!-- 方法执行结束后 -->
@@ -25,7 +23,4 @@
 		</aop:aspect>
 	</aop:config>
 
-	<aop:aspectj-autoproxy proxy-target-class="true">
-		<aop:include name="logAspect" />
-	</aop:aspectj-autoproxy>
 </beans>
