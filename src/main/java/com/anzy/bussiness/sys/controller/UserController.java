@@ -25,10 +25,9 @@ public class UserController extends AbstractController{
     @Resource
     private UserService userService;
 
-    @RequestMapping("/index")
+    @RequestMapping("/init")
     public String index(){
-
-        return "index";
+        return "sys/user";
     }
 
     @RequestMapping("/find")
@@ -44,7 +43,6 @@ public class UserController extends AbstractController{
         }
         return R.error();
     }
-
 
     @ResponseBody
     @RequestMapping("/listUser")

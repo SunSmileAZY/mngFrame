@@ -57,7 +57,7 @@ public class SessionInterceptor implements HandlerInterceptor {
             builder.append("<script type=\"text/javascript\" charset=\"UTF-8\">");
 			builder.append("alert(\"页面过期，请重新登录\");");
             System.out.println(request.getContextPath());
-            builder.append("window.top.location.href=\""+ request.getContextPath() + "/login/login\"");
+            builder.append("window.top.location.href=\""+ request.getContextPath() + "/login/init\"");
             builder.append("</script>");
             out.print(builder.toString());
             out.close();

@@ -1,6 +1,5 @@
 package com.anzy.bussiness.sys.controller;
 
-import com.anzy.frame.utils.R;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.UnauthorizedException;
@@ -18,10 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/login/")
 public class LoginController {
 
-    @RequestMapping("login")
+    @RequestMapping("init")
     public String login(String username,String pwd,String vCode){
-
-        return "login";
+        return "sys/login";
     }
 
     @RequestMapping(value = "dologin")
@@ -39,7 +37,7 @@ public class LoginController {
             if (subject.isAuthenticated()) {
                 return "redirect:/";
             } else {
-                return "login";
+                return "sys/login";
             }
         } catch (IncorrectCredentialsException e) {
             msg = "登录密码错误. Password for account " + token.getPrincipal() + " was incorrect.";
@@ -70,7 +68,7 @@ public class LoginController {
             model.addAttribute("message", msg);
             System.out.println(msg);
         }
-        return "login";
+        return "sys/login";
     }
 
 }

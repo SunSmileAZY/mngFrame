@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by anzy on 2017/12/1.
  */
-public interface UserService extends BaseService<User>{
+public interface UserService extends BaseService<User> {
     /**
      *  Created by Vitelon on 2017-03-22
      *  根据用户名和密码查询用户
