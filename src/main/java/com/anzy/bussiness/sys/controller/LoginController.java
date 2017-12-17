@@ -22,7 +22,7 @@ public class LoginController {
         return "sys/login";
     }
 
-    @RequestMapping(value = "dologin")
+    @RequestMapping(value = "doLogin")
     public String doLogin(HttpServletRequest request, Model model) {
         String msg = "";
         String userName = request.getParameter("userName");
