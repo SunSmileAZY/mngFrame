@@ -22,12 +22,22 @@ var login = new Vue({
                 login.errorMsg = "请输入密码！";
                 return;
             }
-            $.post(ctxPath + "/login/doLogin", {
-                userName: account.val().trim(),
-                password: passwd.val().trim()
-            }, function (data) {
-                login.errorMsg = "请输入用户名！";
-            });
+            var that = this;
+            that.$http({           //调用接口
+                method:'POST',
+                url:ctxPath + "/login/doLogin" , //this指data
+                params:{
+                    userName : account.val().trim(),
+                    password : passwd.val().trim()
+                }
+            }).then(function(response){  //接口返回数据
+                if(response.body == "success"){
+                    window.location.href = ctxPath + "/user/init";
+                }else{
+                    login.errorMsg=response.body;
+                }
+            },function(error){
+            })
         },
         reset:function(){
             $("#username").val("");

@@ -14,3 +14,4 @@
 </script>
 <script type="text/javascript" src="${ctx}/static/plugin/vue.min.js"></script>
 <script type="text/javascript" src="${ctx}/static/plugin/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/plugin/vue-resource.js"></script>
