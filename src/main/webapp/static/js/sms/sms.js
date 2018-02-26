@@ -10,7 +10,7 @@ window.onload = function(){
             tel:'',
             smsContent:'',
             cur: 1,
-            all: 8,
+            all: 10,
             msg: ''
         },
         components:{
@@ -36,8 +36,9 @@ window.onload = function(){
                 alert("调用了查询！")
             },
             callback(data) {
-                this.cur = data
-                this.msg = '你点击了'+data+ '页'
+                this.cur = data;
+                this.msg = '你点击了'+data+ '页';
+                //this.query();
             }
 
         }
