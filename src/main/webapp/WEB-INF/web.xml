@@ -8,7 +8,7 @@
         <description>配置Spring配置文件路径</description>
         <param-name>contextConfigLocation</param-name>
         <!-- 如果是监听多个文件，可用‘，’隔开 -->
-        <param-value>classpath:spring-*.xml</param-value>
+        <param-value>classpath:spring-*.xml;classpath:activemq.xml</param-value>
     </context-param>
 
     <listener>
@@ -16,7 +16,7 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     <!--spring log4j监听器-->
-    <listener>
+   <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
 
