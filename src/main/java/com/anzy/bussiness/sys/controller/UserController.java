@@ -6,6 +6,7 @@ import com.anzy.frame.base.controller.AbstractController;
 import com.anzy.frame.utils.R;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.log4j.Logger;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,35 +26,11 @@ public class UserController extends AbstractController{
     @Resource
     private UserService userService;
 
+    @RequiresRoles("admin")
     @RequestMapping("/init")
-    public String index(){
+    public String index(HttpServletRequest request){
+        logger.info("request.getSession().getId():"+request.getSession().getId());
         return "sys/user";
-    }
-
-    @RequestMapping("/find")
-    @ResponseBody
-    public R find(User user, HttpServletRequest request){
-
-        try {
-            logger.info("你已通过springMVC进入controller方法。。。。");
-            List<User> loginuser = userService.findByUsernameAndPwd(user.getUsername(),user.getLoginPwd());
-            return R.ok().put("data",loginuser);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return R.error();
-    }
-
-    @ResponseBody
-    @RequestMapping("/listUser")
-    public R listUser(String username){
-        logger.info("获取用户列表。。。。");
-        try {
-            return userService.selectUserPage(username);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return R.error();
     }
 
 }

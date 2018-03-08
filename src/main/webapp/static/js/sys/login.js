@@ -25,10 +25,11 @@ var login = new Vue({
             var that = this;
             that.$http({           //调用接口
                 method:'POST',
-                url:ctxPath + "/login/doLogin" , //this指data
+                url:ctxPath + "/login/login" , //this指data
                 params:{
-                    userName : account.val().trim(),
-                    password : passwd.val().trim()
+                    loginAccount : account.val().trim(),
+                    loginPass : passwd.val().trim(),
+                    rememberMe:false
                 }
             }).then(function(response){  //接口返回数据
                 if(response.body == "success"){

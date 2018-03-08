@@ -5,46 +5,25 @@ import com.anzy.bussiness.sys.entity.User;
 import com.anzy.bussiness.sys.service.UserService;
 import com.anzy.frame.base.service.impl.BaseServiceImpl;
 import com.anzy.frame.utils.R;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 /**
- * Created by anzy on 2017/12/1.
+ * <p>
+ * 用户表 服务实现类
+ * </p>
+ *
+ * @author anzy
+ * @since 2018-03-08
  */
 @Service
-public class UserServiceImpl extends BaseServiceImpl<UserDao,User> implements UserService{
+public class UserServiceImpl extends BaseServiceImpl<UserDao, User> implements UserService {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
-    public List<User> findByUsernameAndPwd(String name, String pwd) {
-
-        return baseMapper.findByUsernameAndPwd(name, pwd);
-    }
-
-    public List<User> find(User user){
-
-        return baseMapper.find(user);
-    }
-
-
-    public void add(User user) {
-
-        baseMapper.add(user);
-    }
-
-    public void update(User user) {
-
-        baseMapper.update(user);
-    }
-
-    public void delete(String id) {
-
-        baseMapper.delete(id);
-    }
     public R selectUserPage(String username) {
         LOGGER.info("查询任务数据：" + username);
         try {
@@ -58,6 +37,11 @@ public class UserServiceImpl extends BaseServiceImpl<UserDao,User> implements Us
             e.printStackTrace();
             return R.error();
         }
+    }
+
+    public User selectByAccount(String loginAccount){
+        User u = this.selectOne(new EntityWrapper<User>().eq("loginAccount", loginAccount));
+        return u;
     }
 
 }

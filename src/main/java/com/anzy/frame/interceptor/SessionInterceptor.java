@@ -2,8 +2,10 @@ package com.anzy.frame.interceptor;
 
 import com.anzy.bussiness.sys.entity.User;
 import com.anzy.frame.comm.Constants;
+import com.anzy.frame.utils.RedisUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -11,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
+import java.util.Objects;
 
 /**
  * 拦截器，超时重新登录
@@ -18,6 +21,9 @@ import java.io.PrintWriter;
  */
 public class SessionInterceptor implements HandlerInterceptor {
     private static final Logger LOG = Logger.getLogger(SessionInterceptor.class);
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     /** 不需要拦截的url正则表达式，与antiInterceptURL有区别，后者必须是用户登陆后 */
     @Value("#{propertyConfig['excludeUrls']}")
@@ -45,9 +51,13 @@ public class SessionInterceptor implements HandlerInterceptor {
                 return true;
             }
         }
-        User user = (User) request.getSession().getAttribute(Constants.SESN_USR);
-        System.out.println("请求来了===user：" + user+",url:"+requestUrl);
-        if (user != null) {
+        //获得sessionID
+        String sessionId = request.getSession().getId();
+        User usr = (User) redisUtil.hget(sessionId,Constants.SESN_USR);
+        System.out.println("请求来了===user：" + usr+",url:"+requestUrl);
+        if (usr != null) {
+            //刷新过期时间
+            redisUtil.expire(sessionId,Constants.TIME_OUT);
             // 返回true，则这个方面调用后会接着调用postHandle(), afterCompletion()
             return true;
         } else {
