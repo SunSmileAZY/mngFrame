@@ -21,7 +21,6 @@ import java.util.List;
 /**
  * Created by anzy on 2018/3/8.
  */
-@SuppressWarnings("deprecation")
 @Component
 public class ShiroSecurityRealm extends AuthorizingRealm {
 
@@ -40,20 +39,6 @@ public class ShiroSecurityRealm extends AuthorizingRealm {
     }
 
     /**
-     * 登录认证
-     */
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
-        UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-        User user = userService.selectOne(new EntityWrapper<User>().eq("login_Account", token.getUsername()));
-        if (user != null) {
-            return new SimpleAuthenticationInfo(user.getUserId(), user.getLoginPass(), getName());
-        } else {
-            return null;
-        }
-    }
-
-
-    /**
      * 权限认证
      */
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
@@ -68,6 +53,20 @@ public class ShiroSecurityRealm extends AuthorizingRealm {
                 info.addStringPermissions(permissions);
             }
             return info;
+        } else {
+            return null;
+        }
+    }
+
+
+    /**
+     * 登录认证
+     */
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
+        UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
+        User user = userService.selectOne(new EntityWrapper<User>().eq("login_Account", token.getUsername()));
+        if (user != null) {
+            return new SimpleAuthenticationInfo(user.getUserId(), user.getLoginPass(), getName());
         } else {
             return null;
         }

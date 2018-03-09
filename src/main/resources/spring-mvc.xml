@@ -59,23 +59,29 @@
               <property name="maxInMemorySize" value="40960" />
        </bean>
 
-       <!-- Bean解析器,级别高于默认解析器,寻找bean对象进行二次处理 -->
+       <!--&lt;!&ndash; Bean解析器,级别高于默认解析器,寻找bean对象进行二次处理 &ndash;&gt;
        <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0"/>
 
-       <!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
+       &lt;!&ndash; 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 &ndash;&gt;
        <mvc:default-servlet-handler />
-       <!-- 静态资源映射 -->
-       <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
+       &lt;!&ndash; 静态资源映射 &ndash;&gt;
+       <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>-->
 
        <!-- 拦截器配置 -->
-    <!--   <mvc:interceptors>
-              &lt;!&ndash; session超时 &ndash;&gt;
+      <mvc:interceptors>
+             <!-- 拦截器配置，拦截顺序：先执行后定义的，排在第一位的最后执行。-->
               <mvc:interceptor>
                      <mvc:mapping path="/**" />
                      <mvc:exclude-mapping path="/static/**"/>
                      <bean class="com.anzy.frame.interceptor.SessionInterceptor">
                      </bean>
               </mvc:interceptor>
-       </mvc:interceptors>-->
+             <!-- 手机视图拦截器 -->
+             <mvc:interceptor>
+                    <mvc:mapping path="/**" />
+                    <mvc:exclude-mapping path="/static/**"/>
+                    <bean class="com.anzy.frame.interceptor.MobileInterceptor" />
+             </mvc:interceptor>
+       </mvc:interceptors>
 
 </beans>

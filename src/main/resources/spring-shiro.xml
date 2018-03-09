@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 	
 	
 	<!-- 缓存管理器 使用Ehcache实现 -->
@@ -72,8 +72,8 @@
     
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/login.jsp"/>
-        <property name="successUrl" value="/page/main.action"/>
+        <property name="loginUrl" value="/login/init"/>
+        <property name="successUrl" value="/user/init"/>
         <property name="filters">
             <util:map>
                 <entry key="authc">
@@ -92,7 +92,6 @@
             	/sysuser/getEMailCount.action = anon
             	/sysuser/getUserNameCount.action = anon
             	/sysuser/logout.action = logout
-            	/** = user,sysUser <!-- 表示访问该地址的用户是身份验证通过或RememberMe登录的都可以 -->
             	 /user/init = roles[admin]
             </value>
         </property>
@@ -100,5 +99,6 @@
     
     <!-- Post processor that automatically invokes init() and destroy() methods -->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
-    
+
+
 </beans>
