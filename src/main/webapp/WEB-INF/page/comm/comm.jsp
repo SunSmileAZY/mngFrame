@@ -22,3 +22,16 @@
 <script type="text/javascript" src="${ctx}/static/plugin/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${ctx}/static/plugin/bootstrap-table/js/bootstrap-table.min.js"></script>
 <script type="text/javascript" src="${ctx}/static/plugin/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+<!-- 20180314新加模板加入   anzy  -->
+<link rel="shortcut icon" href="favicon.ico">
+
+<link href="${ctx}/static/css/comm/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+<link href="${ctx}/static/css/comm/animate.min.css" rel="stylesheet">
+<link href="${ctx}/static/css/comm/style.min.css?v=4.0.0" rel="stylesheet">
+
+<script type="text/javascript" src="${ctx}/static/plugin/contabs.min.js"></script>
+<script src="${ctx}/static/plugin/extension/metisMenu/jquery.metisMenu.js"></script>
+<script src="${ctx}/static/plugin/extension/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="${ctx}/static/plugin/extension/layer/layer.min.js"></script>
+<script src="${ctx}/static/plugin/hplus.min.js"></script>
+<script src="${ctx}/static/plugin/extension/pace/pace.min.js"></script>

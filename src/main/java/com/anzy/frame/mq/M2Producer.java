@@ -1,4 +1,4 @@
-package com.anzy.frame.activemq;
+package com.anzy.frame.mq;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.activemq.ActiveMQConnectionFactory;

@@ -18,9 +18,9 @@ public class UserController extends AbstractController {
     @Resource
     private UserService userService;
 
-    @RequestMapping("/init")
+    @RequestMapping(value = {"/init",""})
     public String index(HttpServletRequest request) {
-        logger.info("request.getSession().getId():" + request.getSession().getId());
+        logger.info("进入用户管理界面request.getSession().getId():" + request.getSession().getId());
         return "sys/user";
     }
 

@@ -1,4 +1,4 @@
-package com.anzy.frame.activemq;
+package com.anzy.frame.mq;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;

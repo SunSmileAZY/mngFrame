@@ -4,27 +4,19 @@ import com.anzy.bussiness.sys.entity.User;
 import com.anzy.bussiness.sys.service.UserService;
 import com.anzy.frame.base.controller.AbstractController;
 import com.anzy.frame.comm.Constants;
-import com.anzy.frame.utils.R;
 import com.anzy.frame.utils.RedisUtil;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
-import org.apache.shiro.authz.UnauthorizedException;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by anzy on 2017/12/4.
@@ -35,14 +27,29 @@ public class LoginController extends AbstractController {
 
     @Autowired
     private UserService userService;
-
-    @RequestMapping("init")
-    public String login(String username, String pwd, String vCode) {
-        return "sys/login";
-    }
-
     @Autowired
     private RedisUtil redisUtil;
+
+    @RequestMapping(value = {"init",""})
+    public String init(String username, String pwd, String vCode) {
+        return "sys/login";
+    }
+    @RequestMapping(value = {"left"})
+    public String left(String username, String pwd, String vCode) {
+        return "comm/left";
+    }
+    @RequestMapping(value = {"right"})
+    public String right(String username, String pwd, String vCode) {
+        return "comm/right";
+    }
+    @RequestMapping(value = {"right2"})
+    public String right2(String username, String pwd, String vCode) {
+        return "comm/right2";
+    }
+    @RequestMapping(value = {"mainContent"})
+    public String mainContent() {
+        return "comm/main";
+    }
 
     @ResponseBody
     @RequestMapping(value = "/login", method = {RequestMethod.POST, RequestMethod.GET})
@@ -63,4 +70,5 @@ public class LoginController extends AbstractController {
         session.setAttribute(Constants.SESN_USR, userInfo);
         return msg;
     }
+
 }

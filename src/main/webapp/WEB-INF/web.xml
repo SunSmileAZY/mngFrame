@@ -11,6 +11,10 @@
         <param-value>classpath:spring-*.xml;classpath:redis-context.xml</param-value>
     </context-param>
 
+    <welcome-file-list>
+        <welcome-file>WEB-INF/page/index.jsp</welcome-file>
+    </welcome-file-list>
+
     <listener>
         <description>配置Spring上下文监听器</description>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

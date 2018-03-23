@@ -23,8 +23,8 @@ public abstract class AbstractController {
     @Autowired
     protected HttpServletRequest request;
 
-//    @Autowired
-//    protected HttpServletResponse response;
+    @Autowired
+    protected HttpServletResponse response;
 
     @Autowired
     protected HttpSession session;

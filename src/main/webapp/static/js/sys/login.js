@@ -33,7 +33,7 @@ var login = new Vue({
                 }
             }).then(function(response){  //接口返回数据
                 if(response.body == "success"){
-                    window.location.href = ctxPath + "/user/init";
+                    window.location.href = ctxPath + "/login/mainContent";
                 }else{
                     login.errorMsg=response.body;
                 }
