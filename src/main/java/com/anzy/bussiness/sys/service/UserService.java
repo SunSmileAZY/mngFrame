@@ -2,7 +2,9 @@ package com.anzy.bussiness.sys.service;
 
 
 import com.anzy.bussiness.sys.entity.User;
+import com.anzy.bussiness.sys.entity.qo.UserQO;
 import com.anzy.frame.base.service.BaseService;
+import com.anzy.frame.utils.R;
 
 /**
  * <p>
@@ -14,4 +16,5 @@ import com.anzy.frame.base.service.BaseService;
  */
 public interface UserService extends BaseService<User> {
 
+    R listUserPage(UserQO userQO);
 }
