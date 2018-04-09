@@ -68,6 +68,7 @@ public class LoginController extends AbstractController {
         //记得传入明文密码
         subject.login(new UsernamePasswordToken(userInfo.getLoginAccount(), user.getLoginPass(), rememberMe));
         session.setAttribute(Constants.SESN_USR, userInfo);
+        session.setAttribute(Constants.SESN_USR_NAME,userInfo.getLoginAccount());
         return msg;
     }
 

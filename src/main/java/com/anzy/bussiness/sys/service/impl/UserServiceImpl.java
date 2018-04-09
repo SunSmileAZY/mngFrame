@@ -59,7 +59,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserDao, User> implements U
                             .like("user_name", StringUtils.isBlank(userQO.getUsername()) ? "" : userQO.getUsername())
                             .like("user_Email", StringUtils.isBlank(userQO.getEmail())?"":userQO.getEmail())
                             .like("login_Account", StringUtils.isBlank(userQO.getLoginAccount())?"":userQO.getLoginAccount()));
-            return R.ok().put("records", userPage.getRecords()).put("total", userPage.getTotal()).put("rows", userPage.getSize());
+            return R.ok().put("rows", userPage.getRecords()).put("total", userPage.getTotal());
         } catch (Exception e) {
             LOGGER.error("查询失败！"+e.getMessage());
         }

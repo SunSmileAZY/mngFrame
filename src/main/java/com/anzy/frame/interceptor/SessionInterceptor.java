@@ -1,6 +1,9 @@
 package com.anzy.frame.interceptor;
 
+import com.anzy.frame.comm.Constants;
 import com.anzy.frame.utils.DateUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.MDC;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.NamedThreadLocal;
@@ -29,7 +32,8 @@ public class SessionInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
-
+        String user = request.getSession().getAttribute(Constants.SESN_USR_NAME)+"";
+        MDC.put("user", StringUtils.isBlank(user)?"":user );
         if (LOG.isDebugEnabled()){
             long beginTime = System.currentTimeMillis();//1、开始时间
             startTimeThreadLocal.set(beginTime);		//线程绑定变量（该数据只有当前请求的线程可见）
