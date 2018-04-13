@@ -34,6 +34,7 @@ public class SessionInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
         String user = request.getSession().getAttribute(Constants.SESN_USR_NAME)+"";
         MDC.put("user", StringUtils.isBlank(user)?"":user );
+        MDC.put("system_type","mngFrame");
         if (LOG.isDebugEnabled()){
             long beginTime = System.currentTimeMillis();//1、开始时间
             startTimeThreadLocal.set(beginTime);		//线程绑定变量（该数据只有当前请求的线程可见）

@@ -107,8 +107,10 @@ public abstract class BaseServiceImpl<M extends BaseMapper<T>, T> implements Bas
     }
 
     public boolean insert(T entity, HttpServletRequest request) {
-        entity = setCreateParam(entity, request);
-        entity = setUpdateParam(entity, request);
+        if(request != null){
+            entity = setCreateParam(entity, request);
+            entity = setUpdateParam(entity, request);
+        }
         return retBool(baseMapper.insert(entity));
     }
 

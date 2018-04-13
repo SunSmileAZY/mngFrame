@@ -56,15 +56,15 @@ public class Generator {
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
-        String[] strArray={"SYS_"};
-        strategy.setTablePrefix(strArray);
+//        String[] strArray={"SYS_"};
+//        strategy.setTablePrefix(strArray);
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-//        strategy.setInclude("au_t_user", "au_t_menu"); // 需要生成的表
+        strategy.setInclude("sys_log"); // 需要生成的表
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
         // 字段名生成策略
         strategy.setNaming(NamingStrategy.underline_to_camel);
         // 自定义实体父类
-        strategy.setSuperEntityClass("com.anzy.frame.comm.AbstractBaseEntity");
+//        strategy.setSuperEntityClass("com.anzy.frame.comm.AbstractBaseEntity");
         // 自定义实体，公共字段
 //        strategy.setSuperEntityColumns(new String[] { "CREATE_BY", "CREATE_DT", "UPDATE_BY",
 //            "UPDATE_DT", "DELETE_BY", "ACT_BY_TYPE" });
