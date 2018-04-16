@@ -24,10 +24,35 @@
     <c:import url="../comm/comm.jsp"></c:import>
     <title>日志管理</title>
 </head>
-<body>
+<body style="background-color: #f5f5f5">
+<div class="container body-content" style="width:98%;padding-top:20px;">
+    <div class="panel panel-default">
+        <div class="panel-heading">查询条件</div>
+        <div class="panel-body">
+            <form class="form-inline">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label class="control-label">操作用户：</label>
+                        <input id="txtOperater" type="text" class="form-control">
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label">系统类别：</label>
+                        <input id="txtSystemType" type="text" class="form-control">
+                    </div>
+                </div>
 
+                <div class="row text-right" style="margin-top:20px;">
+                    <div class="col-sm-12">
+                        <input class="btn btn-primary" type="button" value="查询" onclick="searchData()">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
-
-
+    <table id="table"></table>
+</div>
 </body>
+<script type="text/javascript" src="${ctx}/static/js/sys/log.js"></script>
+
 </html>

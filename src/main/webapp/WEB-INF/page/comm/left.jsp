@@ -44,10 +44,10 @@
                         <a class="J_menuItem" href="${ctx}/user/init" data-index="0">用户管理</a>
                     </li>
                     <li>
-                        <a class="J_menuItem" href="${ctx}/user/init1" data-index="1">主页示例二</a>
+                        <a class="J_menuItem" href="${ctx}/log/init" data-index="1">日志管理</a>
                     </li>
                     <li>
-                        <a class="J_menuItem" href="index_v3.html" data-index="2">主页示例三</a>
+                        <a class="J_menuItem" href="${ctx}/log/init" data-index="2">主页示例三</a>
                     </li>
                     <li>
                         <a class="J_menuItem" href="index_v4.html">主页示例四</a>

@@ -3,7 +3,6 @@ package com.anzy.frame.filter;
 
 import com.anzy.frame.comm.Constants;
 import org.apache.log4j.MDC;
-import org.elasticsearch.common.netty.handler.codec.http.HttpRequest;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;

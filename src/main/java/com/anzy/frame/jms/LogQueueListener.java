@@ -2,9 +2,9 @@ package com.anzy.frame.jms;
 
 import com.anzy.bussiness.sys.entity.Log;
 import com.anzy.bussiness.sys.service.LogService;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.spi.LoggingEvent;
-import org.elasticsearch.common.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

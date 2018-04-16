@@ -16,7 +16,7 @@ $(document).ready(function () {
         striped: true,                    //是否显示行间隔色
         cache: false,
         uniqueId: "userId",               //每一行的唯一标识，一般为主键列
-        height: 300,
+        height: 500,
         paginationPreText: "上一页",
         paginationNextText: "下一页",
         columns: [
