@@ -2,12 +2,15 @@ package com.anzy.bussiness.sys.entity;
 
 import java.io.Serializable;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 
 /**
@@ -38,14 +41,17 @@ public class Log extends Model<Log> {
      */
 	private String level;
 	@TableField("Logger_Name")
-	private String LoggerName;
+	private String loggerName;
 	private String message;
 	private String detail;
 	@TableField("ip_Address")
 	private String ipAddress;
 	@TableField("host_Name")
 	private String hostName;
+
 	@TableField("LOG_DT")
+	@JSONField(format= "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss" , timezone = "GMT+8")
 	private Date logDt;
 	private String operater;
 
@@ -75,11 +81,11 @@ public class Log extends Model<Log> {
 	}
 
 	public String getLoggerName() {
-		return LoggerName;
+		return loggerName;
 	}
 
-	public void setLoggerName(String LoggerName) {
-		this.LoggerName = LoggerName;
+	public void setLoggerName(String loggerName) {
+		this.loggerName = loggerName;
 	}
 
 	public String getMessage() {
@@ -142,7 +148,7 @@ public class Log extends Model<Log> {
 			"id=" + id +
 			", systemType=" + systemType +
 			", level=" + level +
-			", LoggerName=" + LoggerName +
+			", loggerName=" + loggerName +
 			", message=" + message +
 			", detail=" + detail +
 			", ipAddress=" + ipAddress +
