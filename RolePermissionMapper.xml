@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.anzy.bussiness.sys.dao.RolePermissionDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.anzy.bussiness.sys.entity.RolePermission">
+        <result column="role_id" property="roleId" />
+        <result column="permissions" property="permissions" />
+    </resultMap>
+
+    <select id="listByRoleId" resultType="List" parameterType="Integer">
+        SELECT permissions from sys_role_permission p
+        WHERE p.role_id = #{roleId}
+    </select>
+
+</mapper>
