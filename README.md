@@ -6,8 +6,8 @@ springmvc+mybatis-plus，单表的增删改查，无需编写SQL
 如：activeMQ、redis、elasticsearch、shiro、spring AOP的使用、log4J中的MDC、NDC等的使用。
 
 个人认为值得学习的点有：
-1、中间件的许多简单demo都可以找到在test包下
-2、activeMQ+log4j+spring 日志记录的使用，通过log4j推送日志到MQ，然后接受MQ推送的日志入库。
+1、中间件的许多简单demo都可以找到在test包下</br>
+2、activeMQ+log4j+spring 日志记录的使用，通过log4j推送日志到MQ，然后接受MQ推送的日志入库。</br>
 3、elasticsearch增删改查应用
 4、redis整合spring以及基本工具类
 5、shiro的基本搭建配置
